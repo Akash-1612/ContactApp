@@ -4,9 +4,9 @@ Clone the repository in your machine and run following commands in your terminal
 
 The site is deployed on following links
 
-Railway.app : 
+Railway.app : https://contactapp-production-0a9a.up.railway.app/ 
 
-Cyclic.sh :
+Cyclic.sh : https://dull-gray-earthworm-boot.cyclic.app/
 
 Tech Stack Used
 Front End: ReactJS
