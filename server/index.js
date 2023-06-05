@@ -3,9 +3,8 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
-const path = require('path');
 
-//Import routes
+//Import Routes
 const authRoute = require('./routes/auth');
 const contactRoute = require('./routes/contacts');
 
@@ -17,7 +16,22 @@ app.use(cors());
 app.use('/api/auth', authRoute);
 app.use('/api/contacts', contactRoute);
 
-//Connect to DB
+
+//Build
+app.use(express.static('client/build'));
+
+const path = require('path');
+app.get('*', (req, res) => {
+res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
+
+
+//Server setup
+const PORT = process.env.PORT || 5000;
+console.log('server started on port:',PORT);
+app.listen(PORT);
+
+//Database setup
 mongoose.connect(process.env.MONGODB_URI, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true,
@@ -27,19 +41,4 @@ mongoose.connect(process.env.MONGODB_URI, {
 })
 .catch((err) => {
     console.error('Error connecting to MongoDB Database: ', err.message);
-});
-
-
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', './frontend/src/index.html'));
-});
-
-//server setup
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
 });

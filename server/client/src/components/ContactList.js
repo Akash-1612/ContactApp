@@ -30,19 +30,22 @@ const ContactList = () => {
     setEditContact(contact);
     setEditedName(contact.name);
     setEditedEmail(contact.email);
+    setEditedPhone(contact.phone);
   };
 
   const handleCancelEdit = () => {
     setEditContact(null);
     setEditedName('');
     setEditedEmail('');
+    setEditedPhone('');
   };
 
   const handleUpdate = async () => {
     try {
       await axios.put(`http://localhost:5000/api/contacts/${editContact._id}`, {
         name: editedName,
-        email: editedEmail
+        email: editedEmail,
+        phone: editedPhone
       }, {
       headers: { Authorization: localStorage.getItem('token')}
     });
@@ -110,6 +113,12 @@ const ContactList = () => {
                     value={editedEmail}
                     onChange={(e) => setEditedEmail(e.target.value)}
                   />
+                  <input
+                    type="text"
+                    value={editedPhone}
+                    onChange={(e) => setEditedPhone(e.target.value)}
+                  />
+
                   <div className='edDel'>
                   <button onClick={handleUpdate}>Update</button>
                   <button onClick={handleCancelEdit}>Cancel</button>
@@ -117,7 +126,7 @@ const ContactList = () => {
                 </div>
               ) : (
                 <div className='edDel'>
-                  {contact.name} - {contact.email}
+                  {contact.name} - {contact.email} - {contact.phone}
                   <button onClick={() => handleEdit(contact)}>Edit</button>
                   <button onClick={() => handleDelete(contact._id)}>Delete</button>
                 </div>
