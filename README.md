@@ -2,11 +2,11 @@ I've create a React Web Application where the user can save contact information,
 
 Clone the repository in your machine and run following commands in your terminal
 
-//In the backend:- 
-node server.js
+The site is deployed on following links
 
-//In the frontend:- 
-npm start
+Railway.app : 
+
+Cyclic.sh :
 
 Tech Stack Used
 Front End: ReactJS
