@@ -11,7 +11,7 @@ const ContactList = () => {
 
   const fetchContacts = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/contacts', {
+      const response = await axios.get('/api/contacts', {
         params: { search: searchQuery },
         headers: {'Authorization': localStorage.getItem('token')}
       });
@@ -42,7 +42,7 @@ const ContactList = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/contacts/${editContact._id}`, {
+      await axios.put(`/api/contacts/${editContact._id}`, {
         name: editedName,
         email: editedEmail,
         phone: editedPhone
@@ -58,7 +58,7 @@ const ContactList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/contacts/${id}`, {
+      await axios.delete(`/api/contacts/${id}`, {
         headers: {Authorization: localStorage.getItem('token')}
       });
       fetchContacts();
@@ -71,7 +71,7 @@ const ContactList = () => {
     event.preventDefault();
 
     try {
-      await axios.post('http://localhost:5000/api/contacts', {
+      await axios.post('/api/contacts', {
         name: editedName,
         email: editedEmail,
         phone: editedPhone
