@@ -8,6 +8,7 @@ const User = require('../models/User');
     if (req.method === 'OPTIONS') {
   
       res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Request-Headers', '*');
       res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
       res.header('Access-Control-Allow-Headers', 'Authorization, Content-Type');
       res.sendStatus(200); 
