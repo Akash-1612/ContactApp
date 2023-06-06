@@ -8,6 +8,15 @@ Railway.app : https://contactapp-production-0a9a.up.railway.app/
 
 Cyclic.sh : https://dull-gray-earthworm-boot.cyclic.app/
 
+in case there's an error or links not working, 
+
+1. Please clone the repository
+
+2. Change directory to root folder
+
+3. run - 'node index.js'
+
+
 Tech Stack Used
 Front End: ReactJS
 Backend: NodeJS
