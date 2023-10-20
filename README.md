@@ -29,9 +29,7 @@ Database: MongoDB
 Some snapshots of the site.
 
 ![aimage](https://github.com/Akash-1612/ContactApp/assets/73643555/48f2258b-cb7e-401f-bc2e-48ea0510f1b1)
-![2](https://github.com/Akash-1612/ContactApp/assets/73643555/e39249ee-fcaa-4c69-9697-9c5c96315909)
-![3](https://github.com/Akash-1612/ContactApp/assets/73643555/2627205d-78d2-4230-8f6f-eff83cf02cc1)
-![4](https://github.com/Akash-1612/ContactApp/assets/73643555/080121dd-5162-463d-a5f7-1f16b5d276c2)
+![2](https://github.com/Akash-1612/ContactApp/assets/73643555/c696f8c3-0917-4ae6-a6b1-2fd31af6fc5a)
 
 That's it.
 Hope you like it.
