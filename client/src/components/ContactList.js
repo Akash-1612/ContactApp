@@ -11,7 +11,7 @@ const ContactList = () => {
 
   const fetchContacts = useCallback(async () => {
     try {
-      const response = await axios.get('/api/contacts', {
+      const response = await axios.get('http://localhost:5000/api/contacts', {
         params: { search: searchQuery },
         headers: {'Authorization': localStorage.getItem('token')}
       });
@@ -114,7 +114,7 @@ const ContactList = () => {
                     onChange={(e) => setEditedEmail(e.target.value)}
                   />
                   <input
-                    type="text"
+                    type="number"
                     value={editedPhone}
                     onChange={(e) => setEditedPhone(e.target.value)}
                   />
@@ -161,7 +161,7 @@ const ContactList = () => {
         <div>
           <label>Phone:</label>
           <input
-            type="text"
+            type="number"
             value={editedPhone}
             onChange={(e) => setEditedPhone(e.target.value)}
           />
