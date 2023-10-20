@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
+import './contList.css';
+import { useNavigate } from 'react-router-dom';
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);
@@ -88,92 +90,92 @@ const ContactList = () => {
     }
   };
 
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/');
+  };
+
 
   return (
-    <div>
-      <div className='contactListBody'>
+    <div className='dashboard-wrapper'>
+      <h2 className='dashHead'>DASHBOARD</h2>
+
+      <div className="center">
+        <div className="subBtn">
+          <button onClick={handleLogout}> {
+            <span> Logout </span>
+          }</button>
+        </div>
+      </div>
+
       <div className='contactList'>
         <h1> Your contacts </h1>
-    
-      {contacts.length === 0 ? (
-        <p>No contacts added</p>
-      ) : (
-        <ul>
-          {contacts.map((contact) => (
-            <li key={contact._id}>
-              {editContact && editContact._id === contact._id ? (
-                <div>
-                  <input
-                    type="text"
-                    value={editedName}
-                    onChange={(e) => setEditedName(e.target.value)}
-                  />
-                  <input
-                    type="email"
-                    value={editedEmail}
-                    onChange={(e) => setEditedEmail(e.target.value)}
-                  />
-                  <input
-                    type="number"
-                    value={editedPhone}
-                    onChange={(e) => setEditedPhone(e.target.value)}
-                  />
 
-                  <div className='edDel'>
-                  <button onClick={handleUpdate}>Update</button>
-                  <button onClick={handleCancelEdit}>Cancel</button>
+        {contacts.length === 0 ? (
+          <p>No contacts added</p>
+        ) : (
+          <ul>
+            {contacts.map((contact) => (
+              <li key={contact._id}>
+                {editContact && editContact._id === contact._id ? (
+                  <div>
+                    <input
+                      type="text"
+                      value={editedName}
+                      onChange={(e) => setEditedName(e.target.value)}
+                    />
+                    <input
+                      type="email"
+                      value={editedEmail}
+                      onChange={(e) => setEditedEmail(e.target.value)}
+                    />
+                    <input
+                      type="number"
+                      value={editedPhone}
+                      onChange={(e) => setEditedPhone(e.target.value)}
+                    />
+
+                    <div className='edDel'>
+                      <button onClick={handleUpdate}>Update</button>
+                      <button onClick={handleCancelEdit}>Cancel</button>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <div className='edDel'>
-                  {contact.name} - {contact.email} - {contact.phone}
-                  <button onClick={() => handleEdit(contact)}>Edit</button>
-                  <button onClick={() => handleDelete(contact._id)}>Delete</button>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
-      )}
-        </div>
+                ) : (
+                  <div className='edDel'>
+                    {contact.name} - {contact.email} - {contact.phone}
+                    <button onClick={() => handleEdit(contact)}>Edit</button>
+                    <button onClick={() => handleDelete(contact._id)}>Delete</button>
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
-      <div className='addCon'>
-      <h3>Add Contact</h3>
+
+      <div className='contactListBody'>
+
+        <div className='addCon'>
+          <h3>Add Contact</h3>
+        </div>
+          <form onSubmit={handleAddContact}>
+              <label>Name:</label>
+              <input type="text" value={editedName} onChange={(e) => setEditedName(e.target.value)} />
+              <label>Email:</label>
+              <input type="email" value={editedEmail} onChange={(e) => setEditedEmail(e.target.value)} />
+              <label>Phone:</label>
+              <input type="number" value={editedPhone} onChange={(e) => setEditedPhone(e.target.value)} />
+            <div className='center2'>
+              <div className='csvbtn'>
+                <button type="submit"><span>Add Contact</span></button>
+              </div>
+            </div>
+          </form>
       </div>
-      <div className='addform'>
-      <form onSubmit={handleAddContact}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            value={editedName}
-            onChange={(e) => setEditedName(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Email:</label>
-          <input
-            type="email"
-            value={editedEmail}
-            onChange={(e) => setEditedEmail(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Phone:</label>
-          <input
-            type="number"
-            value={editedPhone}
-            onChange={(e) => setEditedPhone(e.target.value)}
-          />
-        </div>
-        <div className='center2'>
-          <div className='csvbtn'>
-        <button type="submit"><span>Add Contact</span></button>
-        </div>
-        </div>
-      </form>
-      </div>
-      </div>
+
+
     </div>
   );
 };
