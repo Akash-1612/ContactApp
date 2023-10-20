@@ -1,12 +1,16 @@
-I've create a React Web Application where the user can save contact information, and subsequently edit and delete those contacts.
+I've created a Full Stack MERN Web Application which functions as a phonebook for the users, where the user can -
+Create new contact cards, (New Contact)
+Read saved contacts,
+Update existing contact cards and subsequently;
+Delete those contacts.
 
 Clone the repository in your machine and run following commands in your terminal
 
 The site is deployed on following links
 
-Railway.app : https://contactapp-production-0a9a.up.railway.app/ 
-
 Cyclic.sh : https://dull-gray-earthworm-boot.cyclic.app/
+
+Vercel : 
 
 in case there's an error or links not working, 
 
