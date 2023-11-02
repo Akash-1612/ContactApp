@@ -13,7 +13,7 @@ const ContactList = () => {
 
   const fetchContacts = useCallback(async () => {
     try {
-      const response = await axios.get('/api/contacts', {
+      const response = await axios.get('http://localhost:5000/api/contacts', {
         params: { search: searchQuery },
         headers: {'Authorization': localStorage.getItem('token')}
       });
